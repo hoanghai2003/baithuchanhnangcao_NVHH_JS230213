@@ -67,10 +67,11 @@ function Header() {
             value={status}
             onChange={(e) => setStatus(e.target.value)}
           >
-            <option select="">Choose......</option>
-            <option value={1}>Pending</option>
-            <option value={2}>Fullfill</option>
-            <option value={3}>Reject</option>
+            <option select="">Status</option>
+            <option value="choose">Choose</option>
+            <option value="Pending">Pending</option>
+            <option value="Fullfill">Fullfill</option>
+            <option value="Reject">Reject</option>
           </select>
         </div>
 

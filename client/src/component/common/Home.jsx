@@ -35,26 +35,26 @@ function Home() {
         console.log("An error occurred while deleting the user:", error);
       });
   };
-  // const handleUpdate = (id) => {
-  //   const updateData = {
-  //     content: "Updated content",
-  //     date: "Updated date",
-  //     status: "Updated status",
-  //     user_name: "Updated username",
-  //   };
-  //   fetch(`http://localhost:3000/api/v1/user/${id}`, {
-  //     method: "PUT",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(updateData),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log("update success", data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
+  const handleUpdate = (id) => {
+    const updateData = {
+      content: "Updated content",
+      date: "Updated date",
+      status: "Updated status",
+      user_name: "Updated username",
+    };
+    fetch(`http://localhost:3000/api/v1/user/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updateData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("update success", data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div>
       <Header />
@@ -75,7 +75,7 @@ function Home() {
             <tr key={index}>
               <th scope="row">{user.users_id}</th>
               <td>{user.content}</td>
-              <td>{user.date}</td>
+              <td>{new Date(user.date).toLocaleDateString("en-GB")}</td>
               <td>{user.status}</td>
               <td>{user.user_name}</td>
               <td>
@@ -87,7 +87,7 @@ function Home() {
                   DELETE
                 </button>
                 <button
-                  // onClick={() => handleUpdate(user.users_id)}
+                  onClick={() => handleUpdate(user.users_id)}
                   type="button"
                   className="btn btn-success"
                   style={{ marginLeft: 20 }}

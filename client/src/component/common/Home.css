@@ -16,3 +16,7 @@ select.form-select{
     margin-bottom: 40px;
 
 }
+.table{
+    margin: 0 auto;
+    width: 960px;
+}
